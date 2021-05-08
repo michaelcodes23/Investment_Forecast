@@ -1,7 +1,4 @@
 # Ignore node_module files
 node_modules
-# Ignore JSON files
-package.json
-package-lock.json
 #Ignore .DS_Store
 .DS_Store

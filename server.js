@@ -20,7 +20,7 @@ app.use(express.static('public'));
 
 //Controllers
 const invtController = require('./controllers/routes.js');
-app.use('/invest',invtController);
+//app.use('/invest',invtController);
 //Connections
 
 //everytime I use captlogs everything shows

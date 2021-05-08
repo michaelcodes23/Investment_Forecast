@@ -1,0 +1,8 @@
+body{
+    text-align: center;
+    background: url("https://imgur.com/LFXpGhj.gif") no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100%;
+    color: white;
+}

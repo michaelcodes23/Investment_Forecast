@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=PT+Sans&display=swap" 
+    rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../style.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"> -->
+    <title>Invest in Yourself!</title>
+</head>
+<body>
+    <div class = "header">
+        <div class = 'title'>
+            <h1>Picture Your Investment Future Below:</h1>
+            <h2>Find Out What You'll Future Value Will Be After Years of Investing</h2>
+        </div>
+        <div class = "header-nav">
+            <ul>
+                <li>
+                    <a class = "topLink" href = "/invest/new">Create a New Investment Estimate</a>
+                </li>
+                <li>
+                    <a class = "topLink" href = "/sessions/new">Log in</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class = "middle">
+            <ul>
+                <% for (let i = 0; i < data.length; i++) {%>
+                    <div class = "middleData">  
+                    <li class = "output">
+                        
+                        <a href = "/invest/<%=[i]%>">
+                        <%=data[i].name%>
+                        </a>
+                        <br>
+                        Age: <%=data[i].age%>
+                        <br>
+                        <%const newFormat = new Intl.NumberFormat('en-US')%>
+                        <%const newNum = newFormat.format(data[i].startingAmt)%>
+                        Starting Investment Amount: $<%=newNum%>
+                        <br>
+                        Expected IRR<sup>1</sup>: <%=data[i].exptIRR%>%
+                        <br>
+                        Years To Invest: <%=data[i].yrsToInvest%>
+                        <br>
+                        <a href = "/invest/<%=data[i].id%>/edit"><button class = "indexButton">Edit</button></a>
+                        <div class = "deleteButton">
+                            <form method="POST" action="/invest/<%=data[i]._id%>?_method=DELETE">
+                                <button class = "deleteButton indexButton" type = "submit">Delete</button></a>
+                            </form>
+                        </div>
+                    </li>
+                    </div>
+                <%}%>
+            </ul>
+    </div>
+    <div class = "bottom">
+        <div class = "switchIndex">
+                <h2>Find Out How Long You'll Need to Invest to Achieve Your Goal Below</h2>
+                <a href = "/invest/investgoal"><button class = "indexButton">Time to Hit Your Investment Goal</button></a>
+        </div>
+            <br>
+            <footer>
+            <sup>1</sup>IRR: Internal Return Rate
+            </footer>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+           <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=PT+Sans&display=swap" 
+        rel="stylesheet">
+        <!-- CSS -->
+        <link rel="stylesheet" href="/style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Edit Here</title>
+</head>
+<body>
+    <h2 class = "top">Edit The Investment Log Here</h2>
+    <form class = "editform" action="/invest/investgoal/<%=data.id%>?_method=PUT" method="POST">
+        Username: <input type = "text" name="username" id = 'username' value="<%=data.username%>"><br><br>
+        Password: <input type = "text" name="password" value="<%=data.password%>"><br><br>
+        Name: <input type = "text" name="name" value="<%=data.name%>"><br><br>
+        Age: <input type = "number" name="age" value="<%=data.age%>"><br><br>
+        Annual Investment Contribution: <input type = "number" name="annuityPayment"><br><br>
+        Expected Rate of Return on Investment (Number Only): <input type = "number" name="exptIRR" value="<%=data.exptIRR%>"><br><br>
+        Years To Invest: <input type = "number" name="yrsToInvest" value="<%=data.yrsToInvest%>"><br><br>
+        <input class = 'btn btn-outline-primary' type='submit' name= '' value='Edit Annuity Investment Log'/>
+    </form>
+</body>
+</html>

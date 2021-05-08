@@ -1,0 +1,124 @@
+
+body{
+    text-align: center;
+    background: url("https://imgur.com/LFXpGhj.gif") no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100%;
+    color: white;
+}
+
+
+ul {
+    list-style-type: none;
+}
+
+a{
+    color: black;
+}
+
+.topLink{
+    color: white;
+}
+.title{
+    font-family: 'Dancing Script', cursive;
+}
+.middle{
+    margin: 0 auto;
+    padding: 10px;
+    /* background: rgba(0, 0, 0, 0.75); */
+}
+.showPage{
+    background: rgba(255, 255, 255, 0.90);
+    margin-top: 10%;
+    color: black;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    padding: 50px;
+    border-radius: 25px;
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.showtop{
+    color: black;
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+}
+.middleData{
+    border-style: solid;
+    border-color: #2F66A9;
+    border-width: 5px;
+    margin: 10px;
+    display: inline-flex;
+    border-radius: 25px;
+    background: rgba(255, 255, 255, 0.90);
+    color: black;
+    padding: 10px;
+    padding-bottom: 10px;
+    font-family: 'Roboto Condensed', sans-serif;
+
+}
+.deleteButton{
+    display: inline-block;
+}
+ .header, .bottom{
+     background: rgba(0, 0, 0, 0.75);
+     
+ }
+.bottom{
+    font-family: 'PT Sans', sans-serif;
+}
+.top{
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    color: white;
+}
+.total{
+    text-decoration: underline;
+    font-size: 40px;
+    background-color: yellow;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.editform{
+    background: rgba(255, 255, 255, 0.90);
+    color: black;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+    padding: 50px;
+    border-radius: 25px;
+    text-align: center;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+li{
+    display: inline-block;
+}
+.output{
+    display: inline-block;
+    color: black;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.indexButton{
+    /* font-weight: bold;  */
+    border-color: #0275d8;
+    border-style: bold;
+    border-radius: 10px;
+    padding: 5px;
+    color: white;
+    display: inline block;
+    margin-left:auto; 
+    margin-right:auto;
+    color: #0275d8;
+    background: rgba(255, 255, 255, 0.90);
+}
+.indexButton:hover {
+  background: #0275d8;
+  color: white;
+}

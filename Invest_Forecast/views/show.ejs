@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=data.name%>'s Sample Investments</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=PT+Sans&display=swap" 
+    rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    
+</head>
+<body>
+    <div class = "showPage">
+        <h1 class = "showtop">Welcome to <%=data.name%>'s Sample Investment Future</h1>
+        <h2>Age: <%=data.age%></h2>
+        <h2><%=data.name%>'s Starting Investment Amount: $<%=data.startingAmt%></h2>
+        <h2><%=data.name%>'s Year's to Invest: <%=data.yrsToInvest%></h2>
+        <%const totalInvt = data.startingAmt * Math.pow((1+(data.exptIRR/100)),data.yrsToInvest)%>
+        <%num = Math.round(totalInvt)%>
+        <%const newFormat = new Intl.NumberFormat('en-US')%>
+        <%const newNum = newFormat.format(num)%>
+        <%console.log(num)%>
+        <%console.log(typeof num)%>
+        <h2><%=data.name%>'s total investment gains at <%=data.exptIRR%>% annual return after <%=data.yrsToInvest%> years: <span class = "total">$<%=newNum%></span></h2>
+        <h4>Click below to get back to the home page:</h4>
+        <a href = "/invest"><button class = 'btn btn-outline-primary'>Home Page</button></a>
+    </div>
+</body>
+</html>

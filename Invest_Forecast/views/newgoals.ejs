@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=PT+Sans&display=swap" 
+        rel="stylesheet">
+        <!-- CSS -->
+        <link rel="stylesheet" href="/style.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Create a New Log</title>
+</head>
+<body>
+    <h1 class = "top">Create a New Investment Annuity Log</h1>
+    <form class = "editform" action="/invest/investgoal" method="POST">
+    Username: <input type = "text" name="username"><br><br>
+    Password: <input type = "text" name="password"><br><br>
+    Name: <input type = "text" name="name"><br><br>
+    Age: <input type = "number" name="age"><br><br>
+    Annual Investment Contribution: <input type = "number" name="annuityPayment"><br><br>
+    Expected Rate of Return on Investment (Number Only): <input type = "number" name="exptIRR"><br><br>
+    Years To Invest: <input type = "number" name="yrsToInvest"><br><br>
+    <input class = 'btn btn-outline-primary' type='submit' name= '' value='Create New Investment Log'/>
+    </form>
+</body>
+</html>

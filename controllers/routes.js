@@ -111,7 +111,49 @@ router.post('/login',(req,res)=>{
 router.get('/signout', (req, res)=>{
     req.session.destroy( (err) => {
         if(err){
-            console.log('Could not logout properly')
+            console.log('Could not logout properly or user has not logged in')
+            res.redirect('/invest')
+        } else {
+            console.log('Log out was successful')
+            res.redirect('/invest')
+        }
+    })
+})
+//Sessions - Signin Route, Annuity Goal
+router.get('/investgoal/signin',(req,res)=>{
+    // res.send('invest/login')
+    res.render('users/goallogin.ejs')
+})
+//Sessions - Login Route, Annuity Goal
+router.post('/investgoal/login',(req,res)=>{
+    investGoals.findOne({
+        username: req.body.username
+    }, (error, foundUser)=>{
+        // res.send(foundUser);
+        if(foundUser === null){
+            res.redirect('/invest/investgoal/signin')
+            console.log('Username does not exist')
+        } else {
+            const doesPasswordMatch = bcrypt.compareSync(req.body.password, foundUser.password)
+            if(doesPasswordMatch){
+                console.log(`Welcome back ${foundUser.name}`)
+                req.session.userId = foundUser._id;
+                console.log(req.session)
+                res.render('showgoals.ejs',{
+                    data: foundUser
+                })
+            } else {
+                console.log('The username / password combination was invalid!!')
+                res.redirect('/invest/investgoal/signin')
+            }
+        }
+    })
+})
+//Sessions - Logout Route, Annuity Goal
+router.get('/investgoal/signout', (req, res)=>{
+    req.session.destroy( (err) => {
+        if(err){
+            console.log('Could not logout properly or user has not logged in')
             res.redirect('/invest')
         } else {
             console.log('Log out was successful')

@@ -4,12 +4,15 @@
   "description": "Building an app to show an expected return on investment based on inserted parameters",
   "main": "server.js",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "dotenv": "^9.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "method-override": "^3.0.0",
-    "mongoose": "^5.12.7"
+    "mongoose": "^5.12.7",
+    "morgan": "^1.10.0",
+    "sessions": "0.0.2-7"
   },
   "devDependencies": {},
   "scripts": {

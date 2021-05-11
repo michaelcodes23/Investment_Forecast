@@ -6,6 +6,8 @@ const investLogs = investSchema.investmentLog
 const investGoals = investSchema.investmentGoal
 const investEntries = require('../models/invtEntries.js')
 const investGoalEntries = require('../models/invtGoals.js')
+const bcrypt = require('bcrypt');
+const salt_rounds = 10;
 //Base Seed Route
 router.get('/seed',(req,res)=>{
     investLogs.create(investEntries,(error,createdList)=>{
@@ -45,7 +47,7 @@ router.get('/investgoal',(req, res)=>{
         })
     })
 })
-//Show Routes, Create Routes, Delete Routes, CSS
+
 //New Route - Base Goal
 router.get('/new',(req, res)=>{
     res.render('new.ejs')
@@ -55,13 +57,16 @@ router.get('/new',(req, res)=>{
 //New Route - Annuity Goal
 router.get('/investgoal/new',(req, res)=>{
     res.render('newgoals.ejs')
+
     // res.send('created my new route')
 })
 
 //Create Route - Base Goal
 router.post('/',(req,res)=>{
     // res.send('received');
-    investLogs.create(req.body,(error,getLog)=>{
+    req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(salt_rounds))
+    investLogs.create(req.body,(error,foundUser)=>{
+        console.log(foundUser)
         res.redirect('/invest')
     })
 })
@@ -73,7 +78,47 @@ router.post('/investgoal',(req,res)=>{
         res.redirect('/invest/investgoal')
     })
 })
-
+//Sessions - Signin Route, Base Goal
+router.get('/signin',(req,res)=>{
+    // res.send('invest/login')
+    res.render('users/login.ejs')
+})
+//Sessions - Login Route, Base Goal
+router.post('/login',(req,res)=>{
+    investLogs.findOne({
+        username: req.body.username
+    }, (error, foundUser)=>{
+        // res.send(foundUser);
+        if(foundUser === null){
+            res.redirect('/invest/signin')
+        } else {
+            const doesPasswordMatch = bcrypt.compareSync(req.body.password, foundUser.password)
+            if(doesPasswordMatch){
+                console.log(`Welcome back ${foundUser.name}`)
+                req.session.userId = foundUser._id;
+                console.log(req.session)
+                res.render('show.ejs',{
+                    data: foundUser
+                })
+            } else {
+                console.log('The username / password combination was invalid!!')
+                res.redirect('/invest/signin')
+            }
+        }
+    })
+})
+//Sessions - Logout Route, Base Goal
+router.get('/signout', (req, res)=>{
+    req.session.destroy( (err) => {
+        if(err){
+            console.log('Could not logout properly')
+            res.redirect('/invest')
+        } else {
+            console.log('Log out was successful')
+            res.redirect('/invest')
+        }
+    })
+})
 //Show Route - Base Goal
 router.get('/:id',(req, res)=>{
     investLogs.find({},(error,getLog)=>{
